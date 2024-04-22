@@ -3659,7 +3659,12 @@
       ],
       "properties": {
         "action": {
-          "description": "Action will always be `redirect_browser_to`"
+          "description": "Action will always be `redirect_browser_to`\nredirect_browser_to ContinueWithActionRedirectBrowserToString",
+          "type": "string",
+          "enum": [
+            "redirect_browser_to"
+          ],
+          "x-go-enum-desc": "redirect_browser_to ContinueWithActionRedirectBrowserToString"
         },
         "redirect_browser_to": {
           "description": "The URL to redirect the browser to",

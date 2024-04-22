@@ -533,7 +533,12 @@
         "description": "Indicates, that the UI flow could be continued by showing a recovery ui",
         "properties": {
           "action": {
-            "description": "Action will always be `redirect_browser_to`"
+            "description": "Action will always be `redirect_browser_to`\nredirect_browser_to ContinueWithActionRedirectBrowserToString",
+            "enum": [
+              "redirect_browser_to"
+            ],
+            "type": "string",
+            "x-go-enum-desc": "redirect_browser_to ContinueWithActionRedirectBrowserToString"
           },
           "redirect_browser_to": {
             "description": "The URL to redirect the browser to",

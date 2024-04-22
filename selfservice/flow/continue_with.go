@@ -215,7 +215,7 @@ func NewContinueWithRecoveryUI(f Flow) *ContinueWithRecoveryUI {
 	}
 }
 
-// swagger:enum ContinueWithActionRedirectTo
+// swagger:enum ContinueWithActionRedirectBrowserTo
 type ContinueWithActionRedirectBrowserTo string
 
 // #nosec G101 -- only a key constant
