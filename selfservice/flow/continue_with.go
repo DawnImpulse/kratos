@@ -89,6 +89,8 @@ type ContinueWithVerificationUIFlow struct {
 
 	// The URL of the verification flow
 	//
+	// If this value is set, redirect the user's browser to this URL. This value is typically unset for native clients / API flows.
+	//
 	// required: false
 	URL string `json:"url,omitempty"`
 }
@@ -134,7 +136,10 @@ type ContinueWithSettingsUI struct {
 	//
 	// required: true
 	Action ContinueWithActionShowSettingsUI `json:"action"`
+
 	// Flow contains the ID of the verification flow
+	//
+	// If this value is set, redirect the user's browser to this URL. This value is typically unset for native clients / API flows.
 	//
 	// required: true
 	Flow ContinueWithSettingsUIFlow `json:"flow"`
@@ -146,9 +151,16 @@ type ContinueWithSettingsUIFlow struct {
 	//
 	// required: true
 	ID uuid.UUID `json:"id"`
+
+	// The URL of the settings flow
+	//
+	// If this value is set, redirect the user's browser to this URL. This value is typically unset for native clients / API flows.
+	//
+	// required: false
+	URL string `json:"url,omitempty"`
 }
 
-func NewContinueWithSettingsUI(f Flow) *ContinueWithSettingsUI {
+func NewContinueWithSettingsUI(f Flow, redirectTo string) *ContinueWithSettingsUI {
 	return &ContinueWithSettingsUI{
 		Action: ContinueWithActionShowSettingsUIString,
 		Flow: ContinueWithSettingsUIFlow{
@@ -188,6 +200,8 @@ type ContinueWithRecoveryUIFlow struct {
 
 	// The URL of the recovery flow
 	//
+	// If this value is set, redirect the user's browser to this URL. This value is typically unset for native clients / API flows.
+	//
 	// required: false
 	URL string `json:"url,omitempty"`
 }
@@ -219,6 +233,8 @@ type ContinueWithRedirectBrowserTo struct {
 	Action ContinueWithActionRedirectBrowserTo `json:"action"`
 
 	// The URL to redirect the browser to
+	//
+	// required: true
 	RedirectTo string `json:"redirect_browser_to"`
 }
 
