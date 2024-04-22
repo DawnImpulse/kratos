@@ -20,16 +20,17 @@ type ContinueWithRedirectBrowserTo struct {
 	// Action will always be `redirect_browser_to`
 	Action interface{} `json:"action"`
 	// The URL to redirect the browser to
-	RedirectBrowserTo *string `json:"redirect_browser_to,omitempty"`
+	RedirectBrowserTo string `json:"redirect_browser_to"`
 }
 
 // NewContinueWithRedirectBrowserTo instantiates a new ContinueWithRedirectBrowserTo object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewContinueWithRedirectBrowserTo(action interface{}) *ContinueWithRedirectBrowserTo {
+func NewContinueWithRedirectBrowserTo(action interface{}, redirectBrowserTo string) *ContinueWithRedirectBrowserTo {
 	this := ContinueWithRedirectBrowserTo{}
 	this.Action = action
+	this.RedirectBrowserTo = redirectBrowserTo
 	return &this
 }
 
@@ -67,36 +68,28 @@ func (o *ContinueWithRedirectBrowserTo) SetAction(v interface{}) {
 	o.Action = v
 }
 
-// GetRedirectBrowserTo returns the RedirectBrowserTo field value if set, zero value otherwise.
+// GetRedirectBrowserTo returns the RedirectBrowserTo field value
 func (o *ContinueWithRedirectBrowserTo) GetRedirectBrowserTo() string {
-	if o == nil || o.RedirectBrowserTo == nil {
+	if o == nil {
 		var ret string
 		return ret
 	}
-	return *o.RedirectBrowserTo
+
+	return o.RedirectBrowserTo
 }
 
-// GetRedirectBrowserToOk returns a tuple with the RedirectBrowserTo field value if set, nil otherwise
+// GetRedirectBrowserToOk returns a tuple with the RedirectBrowserTo field value
 // and a boolean to check if the value has been set.
 func (o *ContinueWithRedirectBrowserTo) GetRedirectBrowserToOk() (*string, bool) {
-	if o == nil || o.RedirectBrowserTo == nil {
+	if o == nil {
 		return nil, false
 	}
-	return o.RedirectBrowserTo, true
+	return &o.RedirectBrowserTo, true
 }
 
-// HasRedirectBrowserTo returns a boolean if a field has been set.
-func (o *ContinueWithRedirectBrowserTo) HasRedirectBrowserTo() bool {
-	if o != nil && o.RedirectBrowserTo != nil {
-		return true
-	}
-
-	return false
-}
-
-// SetRedirectBrowserTo gets a reference to the given string and assigns it to the RedirectBrowserTo field.
+// SetRedirectBrowserTo sets field value
 func (o *ContinueWithRedirectBrowserTo) SetRedirectBrowserTo(v string) {
-	o.RedirectBrowserTo = &v
+	o.RedirectBrowserTo = v
 }
 
 func (o ContinueWithRedirectBrowserTo) MarshalJSON() ([]byte, error) {
@@ -104,7 +97,7 @@ func (o ContinueWithRedirectBrowserTo) MarshalJSON() ([]byte, error) {
 	if o.Action != nil {
 		toSerialize["action"] = o.Action
 	}
-	if o.RedirectBrowserTo != nil {
+	if true {
 		toSerialize["redirect_browser_to"] = o.RedirectBrowserTo
 	}
 	return json.Marshal(toSerialize)
