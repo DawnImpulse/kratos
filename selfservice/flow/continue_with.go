@@ -164,7 +164,8 @@ func NewContinueWithSettingsUI(f Flow, redirectTo string) *ContinueWithSettingsU
 	return &ContinueWithSettingsUI{
 		Action: ContinueWithActionShowSettingsUIString,
 		Flow: ContinueWithSettingsUIFlow{
-			ID: f.GetID(),
+			ID:  f.GetID(),
+			URL: redirectTo,
 		},
 	}
 }
